@@ -33,6 +33,9 @@ importers:
       '@nx/plugin':
         specifier: ^16.9.1
         version: 16.9.1(@swc-node/register@1.4.2)(@swc/core@1.3.90)(@types/node@18.7.1)(eslint@8.46.0)(nx@16.9.1)(ts-node@10.9.1)(typescript@5.1.6)
+      '@nxext/sveltekit':
+        specifier: 14.0.0-next.2
+        version: 14.0.0-next.2(nx@16.9.1)(typescript@5.1.6)
       '@swc-node/register':
         specifier: ~1.4.2
         version: 1.4.2(@swc/core@1.3.90)
@@ -142,6 +145,9 @@ importers:
 
   libs/automation:
     dependencies:
+      '@nx/devkit':
+        specifier: 16.9.1
+        version: 16.9.1(nx@16.9.1)
       tslib:
         specifier: ^2.3.0
         version: 2.6.2
@@ -2001,6 +2007,20 @@ packages:
       fastq: 1.15.0
     dev: true
 
+  /@nrwl/devkit@14.8.9(nx@16.9.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-C9PxTxTrVundP9xDbub7apkMPP1v1PSIu/d82VdOVnnU3Kvc2fRX2gafSdH+BMBP3SE4bIBblQI6gUuDXbYubw==}
+    peerDependencies:
+      nx: '>= 13.10 <= 15'
+    dependencies:
+      '@phenomnomnominal/tsquery': 4.1.1(typescript@5.1.6)
+      ejs: 3.1.9
+      ignore: 5.2.4
+      nx: 16.9.1(@swc-node/register@1.4.2)(@swc/core@1.3.90)
+      tslib: 2.6.2
+    transitivePeerDependencies:
+      - typescript
+    dev: true
+
   /@nrwl/devkit@16.9.1(nx@16.9.1):
     resolution: {integrity: sha512-+iR7tg+LOrGWAGmGv0hr45hYUOeKjK/Jm6WV3Ldmx6I7LaaYM5Fu6Ev2KXL669QMzLJpg3kqgKQsneWbFT3MAw==}
     dependencies:
@@ -2409,6 +2429,15 @@ packages:
       - debug
     dev: true
 
+  /@nxext/sveltekit@14.0.0-next.2(nx@16.9.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-6+5RCKrN6j8EA4ozh7vt5BnHPynJF/vqX4+BpLpAqzDmCSo/hcTmfUzygnTaPFYwhbdBBgizFkzg1KyPtH2J5Q==}
+    dependencies:
+      '@nrwl/devkit': 14.8.9(nx@16.9.1)(typescript@5.1.6)
+    transitivePeerDependencies:
+      - nx
+      - typescript
+    dev: true
+
   /@parcel/watcher@2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
     engines: {node: '>= 10.0.0'}
@@ -2416,6 +2445,15 @@ packages:
     dependencies:
       node-addon-api: 3.2.1
       node-gyp-build: 4.6.1
+
+  /@phenomnomnominal/tsquery@4.1.1(typescript@5.1.6):
+    resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
+    peerDependencies:
+      typescript: ^3 || ^4
+    dependencies:
+      esquery: 1.5.0
+      typescript: 5.1.6
+    dev: true
 
   /@phenomnomnominal/tsquery@5.0.1(typescript@5.1.6):
     resolution: {integrity: sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA==}

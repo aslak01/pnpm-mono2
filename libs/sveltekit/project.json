@@ -1,0 +1,72 @@
+{
+  "name": "sveltekit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sveltekit/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/sveltekit/**/*.ts",
+          "libs/sveltekit/generators.json",
+          "libs/sveltekit/executors.json",
+          "libs/sveltekit/project.json",
+          "libs/sveltekit/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/sveltekit"
+      ],
+      "options": {
+        "jestConfig": "libs/sveltekit/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/sveltekit",
+        "tsConfig": "libs/sveltekit/tsconfig.lib.json",
+        "packageJson": "libs/sveltekit/package.json",
+        "main": "libs/sveltekit/src/index.ts",
+        "assets": [
+          "libs/sveltekit/*.md",
+          {
+            "input": "./libs/sveltekit/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/sveltekit/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/sveltekit",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/sveltekit",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs sveltekit {args.ver} {args.tag}",
+      "dependsOn": [
+        "build"
+      ]
+    }
+  },
+  "tags": []
+}
