@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "skproj": {
+      "factory": "./src/generators/skproj/generator",
+      "schema": "./src/generators/skproj/schema.json",
+      "description": "skproj generator"
+    }
+  }
+}
